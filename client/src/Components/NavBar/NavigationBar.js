@@ -179,10 +179,20 @@ function NavigationBar() {
             </MenuItem>
          </Link> )
               :setting=='Dashboard'?(
-                <Link to='/'>  <MenuItem key={setting} onClick={handleCloseUserMenuLog}>
+                user.role&&user.role=="client" ?
+                <Link to='/dhbClient'>  <MenuItem key={setting} onClick={handleOpenUserMenu}>
                 <Typography textAlign="center">{setting}</Typography>
               </MenuItem>
-           </Link> ) :(
+           </Link>: user.role=="saler"?
+           <Link to='/dhbSaler'>  <MenuItem key={setting} onClick={handleOpenUserMenu}>
+                <Typography textAlign="center">{setting}</Typography>
+              </MenuItem>
+           </Link>:
+           <Link to='/'>  <MenuItem key={setting} onClick={handleOpenUserMenu}>
+           <Typography textAlign="center">{setting}</Typography>
+         </MenuItem>
+      </Link>
+                 ) :(
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>

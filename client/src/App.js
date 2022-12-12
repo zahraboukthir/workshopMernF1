@@ -10,7 +10,9 @@ import { useEffect } from 'react';
 import { getuser } from './js/actions/authActions';
 import PrivateRoute from './Components/PrivateRoute';
 import DachboardClient from './Components/PrivateRoute/Dashboards/DachboardClient';
-import DashboardSaler from './Components/PrivateRoute/Dashboards/DashboardSaler';
+
+import Dashboard from './Components/PrivateRoute/Saler/Dashboard';
+import Orders from './Components/PrivateRoute/Saler/Orders';
 
 function App() {
   const dispatch=useDispatch()
@@ -35,9 +37,16 @@ function App() {
 <Route path='/dhbSaler' element={
 
 <PrivateRoute>
-  <DashboardSaler/>
+<Dashboard/>
 </PrivateRoute>
 }/>
+<Route path="/dhbSaler/order" element={
+
+<PrivateRoute>
+<Orders/>
+</PrivateRoute>
+}/>
+
 </Routes>
     </div>
   );

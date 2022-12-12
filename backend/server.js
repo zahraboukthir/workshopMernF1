@@ -15,5 +15,6 @@ connectdb()
 
 app.use(cors())
 app.use("/auth",require("./Routes/authRoute"))
-
+app.use("/product",require("./Routes/productRoutes"))
+app.use("/user",require("./Routes/userRoutes"))
 app.listen(port,err=>err?console.log(err):console.log(`server is running on port ${port}`))
