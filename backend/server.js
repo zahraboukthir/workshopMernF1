@@ -12,7 +12,7 @@ connectdb()
 
 
 
-
+app.use("/uploads",express.static(__dirname+"/uploads"))
 app.use(cors())
 app.use("/auth",require("./Routes/authRoute"))
 app.use("/product",require("./Routes/productRoutes"))

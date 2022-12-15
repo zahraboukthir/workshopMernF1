@@ -15,6 +15,7 @@ const isAutorized = async (req, res, next) => {
   }
 };
 const isSaler = (req, res, next) => {
+  
   if (req.user.role != "saler" && req.user.role != "admin") {
     return res.status(400).send({ msg: "you are not saler" });
   }

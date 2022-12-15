@@ -22,7 +22,7 @@ export const mainListItems = (
     <ListItemButton>
       <ListItemIcon>
         <ShoppingCartIcon />
-      </ListItemIcon>
+      </ListItemIcon >
       {/* <ListItemText primary="Orders" /> */}
       <Link to="/dhbSaler/order">Orders</Link>
     </ListItemButton>

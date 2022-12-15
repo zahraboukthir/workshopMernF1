@@ -13,11 +13,17 @@ import DachboardClient from './Components/PrivateRoute/Dashboards/DachboardClien
 
 import Dashboard from './Components/PrivateRoute/Saler/Dashboard';
 import Orders from './Components/PrivateRoute/Saler/Orders';
+import { getallproducts } from './js/actions/productActions';
+import ProductList from './Components/product/ProductList';
+import ProdDetails from './Components/product/ProdDetails';
+import AddProd from './Components/product/AddProduct';
+import EditProduct from './Components/product/EditProd';
 
 function App() {
   const dispatch=useDispatch()
   useEffect(() => {
     dispatch(getuser())
+    dispatch(getallproducts())
 
   }, [])
   
@@ -28,6 +34,17 @@ function App() {
 <Route path='/' element={<Home/>}/>
 <Route path='/signin' element={<SignIn/>}/>
 <Route path='/signup' element={<SignUp/>}/>
+
+<Route path='/products' element={<ProductList/>}/>
+<Route path='/products/details' element={<ProdDetails/>}/>
+<Route path='/products/add' element={
+<PrivateRoute>
+<AddProd/>
+  </PrivateRoute>
+} />
+<Route path='/products/edit' element={<PrivateRoute>
+<EditProduct/>
+  </PrivateRoute>} />
 <Route path='/dhbClient' element={
 
   <PrivateRoute>
